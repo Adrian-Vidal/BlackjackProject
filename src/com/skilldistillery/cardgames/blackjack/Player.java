@@ -17,4 +17,7 @@ public class Player {
 		//hand.addCard(card);
 	}
 	
+	public int getHandValue() {
+		return hand.getHandValue();
+	}
 }

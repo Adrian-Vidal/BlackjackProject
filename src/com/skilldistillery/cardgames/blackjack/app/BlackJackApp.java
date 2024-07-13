@@ -1,5 +1,7 @@
 package com.skilldistillery.cardgames.blackjack.app;
 
+import java.util.Scanner;
+
 import com.skilldistillery.cardgames.blackjack.Dealer;
 import com.skilldistillery.cardgames.blackjack.Player;
 
@@ -12,8 +14,12 @@ public class BlackJackApp {
 	private Dealer dealer = new Dealer();
 	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		System.out.println("Welcome to SD44 blackjack. Press enter to start.");
+		 Scanner keyboard = new Scanner(System.in);
+		 String userInput;
+		 userInput = keyboard.next();
+		    
+		    
 	}
 
 }

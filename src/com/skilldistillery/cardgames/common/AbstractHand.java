@@ -12,9 +12,22 @@ public abstract class AbstractHand {
 		this.cardsInHand = new ArrayList<>();
 	}
 	
-	public abstract int getHandValue();
 	
 	//TODO addCard(Card card) and clearHand() need to be added
+	public void addCard(Card card) {
+		cardsInHand.add(card);
+		
+	}
 	
+	
+	
+	public abstract int getHandValue();
+	
+	
+	
+	public void clearHand() {
+		cardsInHand.clear();
+		
+	}
 	
 }
