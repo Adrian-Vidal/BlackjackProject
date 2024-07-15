@@ -24,5 +24,13 @@ public class Player {
 	public void displayHand() {
 		System.out.println(hand);
 	}
+	
+	public boolean isBlackJack() {
+		return hand.isBlackJack();
+	}
+	
+	public boolean isBust() {
+		return hand.isBust();
+	}
 			
 }

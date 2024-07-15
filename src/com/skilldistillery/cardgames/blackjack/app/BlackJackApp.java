@@ -35,10 +35,21 @@ public class BlackJackApp {
 
 		System.out.println("Dealer's hand:");
 		dealer.displayHand();
-
+		System.out.println();
 		System.out.println("Player's hand:");
 		player.displayHand();
+		System.out.println();
 		
+		if (player.isBlackJack() && dealer.isBlackJack()) {
+			System.out.println("\nBoth player and dealer have Blackjack! It's a tie!");
+			return;
+		} else if (player.isBlackJack()) {
+			System.out.println("\nPlayer has Blackjack! Player wins!");
+			return;
+		} else if (dealer.isBlackJack()) {
+			System.out.println("\nDealer has Blackjack! Dealer wins!");
+			return;
+		}
 		
 		keyboard.close();
 	}
