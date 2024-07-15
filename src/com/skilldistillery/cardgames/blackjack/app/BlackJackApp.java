@@ -52,9 +52,9 @@ public class BlackJackApp {
 
 		boolean playerBust = false;
 		while (true) {
-			System.out.println("Enter H to Hit or S to Stand.\n");
+			System.out.println("Enter h to hit or s to stand.\n");
 			String userSelection = keyboard.nextLine();
-			if (userSelection.equalsIgnoreCase("H")) {
+			if (userSelection.equalsIgnoreCase("h")) {
 				player.addCardToHand(dealer.dealCard());
 				System.out.println();
 				player.displayHand();
@@ -64,7 +64,7 @@ public class BlackJackApp {
 					playerBust = true;
 					break;
 				}
-			} else if (userSelection.equalsIgnoreCase("S")) {
+			} else if (userSelection.equalsIgnoreCase("s")) {
 				System.out.println();
 				break;
 			} else {

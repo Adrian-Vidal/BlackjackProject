@@ -25,4 +25,6 @@ public class Dealer extends Player {
 		deck.shuffle();
 	}
 	
+	
+	
 }
