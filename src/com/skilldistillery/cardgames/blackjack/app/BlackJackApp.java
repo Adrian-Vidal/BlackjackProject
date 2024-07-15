@@ -21,15 +21,14 @@ public class BlackJackApp {
 		keyboard.nextLine();
 
 		app.playGame(keyboard);
-		
+
 	}
 
 	private void playGame(Scanner keyboard) {
 		dealer.shuffle();
-		
-		dealer.addCardToHand(dealer.dealCard());
-		dealer.addCardToHand(dealer.dealCard());
 
+		dealer.addCardToHand(dealer.dealCard());
+		dealer.addCardToHand(dealer.dealCard());
 		player.addCardToHand(dealer.dealCard());
 		player.addCardToHand(dealer.dealCard());
 
@@ -39,7 +38,7 @@ public class BlackJackApp {
 		System.out.println("Player's hand:");
 		player.displayHand();
 		System.out.println();
-		
+
 		if (player.isBlackJack() && dealer.isBlackJack()) {
 			System.out.println("\nBoth player and dealer have Blackjack! It's a tie!");
 			return;
@@ -50,9 +49,55 @@ public class BlackJackApp {
 			System.out.println("\nDealer has Blackjack! Dealer wins!");
 			return;
 		}
-		
+
+		boolean playerBust = false;
+		while (true) {
+			System.out.println("Enter H to Hit or S to Stand.\n");
+			String userSelection = keyboard.nextLine();
+			if (userSelection.equalsIgnoreCase("H")) {
+				player.addCardToHand(dealer.dealCard());
+				System.out.println();
+				player.displayHand();
+				System.out.println();
+				if (player.getHandValue() > 21) {
+					System.out.println("Player busts, dealer wins!");
+					playerBust = true;
+					break;
+				}
+			} else if (userSelection.equalsIgnoreCase("S")) {
+				System.out.println();
+				break;
+			} else {
+				System.out.println("\nInvalid selection. Please enter H or S.\n");
+			}
+		}
+
+		if (!playerBust) {
+			while (dealer.getHandValue() < 17) {
+				dealer.addCardToHand(dealer.dealCard());
+				dealer.displayHand();
+				System.out.print("Dealer's hand: " + dealer.getHandValue() + "\n");  
+			}
+
+			if (dealer.getHandValue() > 21) {
+				System.out.println("\nDealer busts, player wins!");
+			} else {
+				int playerValue = player.getHandValue();
+				int dealerValue = dealer.getHandValue();
+
+				System.out.println("\nDealer's hand: " + dealerValue);
+				System.out.println("Player's hand: " + playerValue);
+
+				if (playerValue > dealerValue) {
+					System.out.println("Player wins!");
+				} else if (playerValue < dealerValue) {
+					System.out.println("Dealer wins!");
+				} else {
+					System.out.println("Tie!");
+				}
+			}
+		}
+
 		keyboard.close();
 	}
 }
-
-
