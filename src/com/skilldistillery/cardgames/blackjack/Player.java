@@ -14,10 +14,15 @@ public class Player {
 	}
 
 	public void addCardToHand(Card card) {
-		//hand.addCard(card);
+		hand.addCard(card);
 	}
 	
 	public int getHandValue() {
 		return hand.getHandValue();
 	}
+	
+	public void displayHand() {
+		System.out.println(hand);
+	}
+			
 }
